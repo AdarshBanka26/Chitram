@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-white text-ink font-sans antialiased;
+  }
+  ::selection {
+    @apply bg-magenta text-white;
+  }
+}
+
+@layer components {
+  /* Eyebrow / label text used across the site */
+  .label {
+    @apply font-mono text-[11px] uppercase tracking-[0.25em] text-ink/50;
+  }
+
+  /* Pill buttons */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full font-mono text-sm font-bold uppercase tracking-wider transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .btn-primary {
+    @apply btn bg-royal text-white px-7 py-3 hover:bg-ink;
+  }
+  .btn-magenta {
+    @apply btn bg-magenta text-white px-7 py-3 hover:bg-ink;
+  }
+  .btn-dark {
+    @apply btn bg-ink text-white px-7 py-3 hover:bg-royal;
+  }
+  .btn-outline {
+    @apply btn border border-ink/20 text-ink px-6 py-2.5 hover:border-ink hover:bg-ink hover:text-white;
+  }
+  .btn-saffron {
+    @apply btn bg-saffron text-white px-7 py-3 hover:bg-gold;
+  }
+
+  .input {
+    @apply w-full rounded-xl border border-ink/15 bg-white px-4 py-3 text-sm outline-none transition focus:border-royal focus:ring-2 focus:ring-royal/20;
+  }
+
+  .container-x {
+    @apply mx-auto w-full max-w-6xl px-5 sm:px-8;
+  }
+}
+
+/* Masonry columns for the gallery grids */
+.masonry {
+  column-gap: 1.25rem;
+}
+.masonry > * {
+  break-inside: avoid;
+  margin-bottom: 1.25rem;
+}
+@media (min-width: 640px) {
+  .masonry {
+    column-count: 2;
+  }
+}
+@media (min-width: 1024px) {
+  .masonry {
+    column-count: 3;
+  }
+}
+@media (min-width: 1280px) {
+  .masonry {
+    column-count: 4;
+  }
+}
